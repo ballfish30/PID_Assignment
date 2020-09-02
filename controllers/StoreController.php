@@ -8,3 +8,4 @@ class StoreController extends Controller
         $this->view("Store/index");
     }
 }
+?>
