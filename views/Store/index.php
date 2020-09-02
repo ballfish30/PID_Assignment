@@ -26,7 +26,7 @@
 
             <h2 class="entry-title">
               <a href="#" title="Running through Chicago">
-                阿魚桌遊店 </a>
+                陰間條例 夜神篇 </a>
             </h2>
             <ul class="meta top">
               <li class="time">

@@ -144,7 +144,7 @@ strong, th {
 }
 
 td {
-  vertical-align: top;
+  vertical-align: center;
 }
 
 sub, sup {
@@ -2515,7 +2515,7 @@ input[type="submit"],
 .edd_go_to_checkout.button, .edd_go_to_checkout.button.white,
 .edd-submit.button, .edd-submit.button.white {
   color: #f08c79 !important;
-  padding: 1em 2.5em;
+  /* padding: 1em 2.5em; */
   text-shadow: none;
   display: inline-block;
   text-decoration: none;

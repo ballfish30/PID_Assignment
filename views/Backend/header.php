@@ -42,24 +42,11 @@
                 <div class="table-cell">
                     <ul id="menu-menu-1">
                         <li class="menu-item">
-                            <a href="http://localhost:8888/PID_Assignment/store/">首頁</a></li>
+                            <a href="http://localhost:8888/PID_Assignment/store/">後台首頁</a></li>
                         <li class="menu-item">
-                            <a href="about.html">購物車</a></li>
+                            <a href="about.html">會員列表</a></li>
                         <li class="menu-item">
-                            <a href="blog.html">訂單</a></li>
-                        <li class="menu-item">
-                            <a href="http://localhost:8888/PID_Assignment/user/register">註冊</a></li>
-                        <?php
-                            session_start();
-                            if(isset($_SESSION['userId'])){
-                                echo $_SESSION['userId'];
-                                echo("<li class='menu-item'>
-                                <a href='http://localhost:8888/PID_Assignment/user/logout'>登出</a></li>"); 
-                            }else{
-                                echo("<li class='menu-item'>
-                                <a href='http://localhost:8888/PID_Assignment/user/login'>登入</a></li>");   
-                            }
-                        ?>
+                            <a href="blog.html">商品管理</a></li>
                         <li class="menu-inline menu-item">
                             <a title="Facebook" href="https://www.facebook.com/tbgm0906311158">
                                 <i class="fa fa-facebook"></i><span class="i">Facebook</span>
