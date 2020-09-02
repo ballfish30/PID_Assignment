@@ -5,7 +5,6 @@ class UserController extends Controller
 
     function index()
     {
-        $link = include 'config.php';
         $this->view("User/login");
     }
 
@@ -28,7 +27,6 @@ class UserController extends Controller
       mutil;
       $result = mysqli_query($link, $sql);
       $search = mysqli_fetch_assoc($result);
-      echo($sql);
       if ($search == Null){
           $Message = "查無此用戶";
           return header("Location: http://localhost:8888/PID_Assignment/user/login?Message=".$Message);

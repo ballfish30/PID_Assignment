@@ -52,7 +52,6 @@
                         <?php
                             session_start();
                             if(isset($_SESSION['userId'])){
-                                echo $_SESSION['userId'];
                                 echo("<li class='menu-item'>
                                 <a href='http://localhost:8888/PID_Assignment/user/logout'>登出</a></li>"); 
                             }else{
