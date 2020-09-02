@@ -46,7 +46,7 @@
                             <li class="menu-item">
                             <a href="http://localhost:8888/PID_Assignment/store/">前台首頁</a></li>
                         <li class="menu-item">
-                            <a href="http://localhost:8888/PID_Assignment/store/">會員列表</a></li>
+                            <a href="http://localhost:8888/PID_Assignment/backend/members">會員列表</a></li>
                         <li class="menu-item">
                             <a href="blog.html">商品管理</a></li>
                             <?php
