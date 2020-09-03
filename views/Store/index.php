@@ -60,4 +60,5 @@
 
 
 </div><!-- /wrap -->
+
 <?php require_once('footer.php'); ?>
