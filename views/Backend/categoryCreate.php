@@ -1,14 +1,6 @@
-<?php
-  $link = include 'config.php';
-  $sql = <<<mutil
-    select * from product;
-  mutil;
-  $result = mysqli_query($link, $sql);
-?>
 <?php require_once('header.php'); ?>
 <div style="padding-top:5.5em;" align="center">
-<form id="form1" name="form1" method="post" action="http://localhost:8888/PID_Assignment/backend/categoryUpdate">
-  <input type="hidden" name="categoryId" id="categoryId" value="<?php echo $_GET['categoryId']?>" required="required"/>
+<form id="form1" name="form1" method="post" action="http://localhost:8888/PID_Assignment/backend/categoryCreate">
   <table width="300" border="0" align="center" cellpadding="5" cellspacing="0" bgcolor="#F2F2F2">
     <tr>
       <td width="80" align="center" valign="baseline">類別名稱</td>
