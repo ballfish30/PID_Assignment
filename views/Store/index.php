@@ -5,6 +5,7 @@ $sql = <<<mutil
   mutil;
 $result = mysqli_query($link, $sql);
 ?>
+<script src='/PID_Assignment/js/jquery.min.js'></script>
 <?php require_once('header.php'); ?>
 <div class="wrap full-wrap">
   <div class="main-wrap">
@@ -81,5 +82,11 @@ $result = mysqli_query($link, $sql);
   </div><!-- /main-wrap -->
 </div><!-- /wrap -->
 
-
+<script>
+  $(".add-to-cart").on("click", function() {
+    $this = $(this);
+    $productId = $this.parent().prev().parent().children().next().first().val();
+    $quantity = $this.parent().parent().children().children().next().val();
+  });
+</script>
 <?php require_once('footer.php'); ?>
