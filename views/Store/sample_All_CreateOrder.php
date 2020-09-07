@@ -38,7 +38,7 @@ $result = mysqli_query($link, $sql);
         $obj->Send['MerchantTradeDate'] = date('Y/m/d H:i:s');                        //交易時間
         $obj->Send['TotalAmount']       = $order['total'];                                       //交易金額
         $obj->Send['TradeDesc']         = "阿魚桌遊店" ;                           //交易描述
-        $obj->Send['ChoosePayment']     = ECPay_PaymentMethod::ALL ;                  //付款方式:全功能
+        $obj->Send['ChoosePayment']     = ECPay_PaymentMethod::Credit ;                  //付款方式:全功能
 
         //訂單的商品資料
         while($cart = mysqli_fetch_assoc($result)):

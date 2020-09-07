@@ -93,11 +93,13 @@ class StoreController extends Controller
         $sql = <<<mutil
           update orders
             set
-                total = $orderTotal
+                total = $orderTotal,
+                done = True
             where
                 id = $_SESSION[orderId]
         mutil;
         mysqli_query($link, $sql);
+        //因沒有使用網址，無法回傳付款成功參數，在此假設已付款
         return $this->view('store/orderCheck');
     }
 
