@@ -87,6 +87,7 @@ $result = mysqli_query($link, $sql);
     $this = $(this);
     $productId = $this.parent().prev().parent().children().next().first().val();
     $quantity = $this.parent().parent().children().children().next().val();
+    console.log("http://localhost:8888/PID_Assignment/store/cartAdd?productId="+$productId + "&quantity=" + $quantity)
     $.ajax({
       type:"GET",
       url:"http://localhost:8888/PID_Assignment/store/cartAdd?productId="+$productId + "&quantity=" + $quantity

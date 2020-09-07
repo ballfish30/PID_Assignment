@@ -33,7 +33,7 @@ $result = mysqli_query($link, $sql);
 
         //基本參數(請依系統規劃自行調整)
         $MerchantTradeNo = "Test".time() ;
-        $obj->Send['ReturnURL']         = "http://www.ecpay.com.tw/receive.php" ;     //付款完成通知回傳的網址
+        $obj->Send['ReturnURL']         = "http://localhost:8888/PID_Assignment/store/orderDone?orderId="+$order['id'] ;     //付款完成通知回傳的網址
         $obj->Send['MerchantTradeNo']   = $MerchantTradeNo;                           //訂單編號
         $obj->Send['MerchantTradeDate'] = date('Y/m/d H:i:s');                        //交易時間
         $obj->Send['TotalAmount']       = $order['total'];                                       //交易金額

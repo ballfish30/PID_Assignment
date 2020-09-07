@@ -93,14 +93,13 @@ class StoreController extends Controller
         $sql = <<<mutil
           update orders
             set
-                total = $orderTotal,
-                done = True
+                total = $orderTotal
             where
                 id = $_SESSION[orderId]
         mutil;
         mysqli_query($link, $sql);
-        //因沒有使用網址，無法回傳付款成功參數，在此假設已付款
         return $this->view('store/orderCheck');
+        
     }
 
 
@@ -113,6 +112,20 @@ class StoreController extends Controller
 
     function pay(){
         $this->view('Store/sample_All_CreateOrder');
+    }
+
+
+
+    function orderDone(){
+        $link = include 'config.php';
+        $sql = <<<mutil
+          update orders
+            set
+                done = True
+            where
+                id = $_GET[orderId]
+        mutil;
+        mysqli_query($link, $sql);
     }
 }
 ?>
