@@ -34,6 +34,9 @@ class UserController extends Controller
       elseif(!password_verify($passwd, $user['passwd'])){
           $Message = "密碼錯誤";
           return header("Location: http://localhost:8888/PID_Assignment/user/login?Message=".$Message);
+      }elseif(!$user['isActive']){
+        $Message = "會員已停用";
+        return header("Location: http://localhost:8888/PID_Assignment/user/login?Message=".$Message);
       }
       $_SESSION['userId'] = $user['id'];
       //是否有未結帳訂單，如無則新增新訂單
