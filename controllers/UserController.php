@@ -26,18 +26,33 @@ class UserController extends Controller
           select * from user where accountName = "$accountName";
       mutil;
       $result = mysqli_query($link, $sql);
-      $search = mysqli_fetch_assoc($result);
-      if ($search == Null){
+      $user = mysqli_fetch_assoc($result);
+      if ($user == Null){
           $Message = "查無此用戶";
           return header("Location: http://localhost:8888/PID_Assignment/user/login?Message=".$Message);
       }
-      elseif(!password_verify($passwd, $search['passwd'])){
+      elseif(!password_verify($passwd, $user['passwd'])){
           $Message = "密碼錯誤";
           return header("Location: http://localhost:8888/PID_Assignment/user/login?Message=".$Message);
       }
-      $_SESSION['userId'] = $search['id'];
+      $_SESSION['userId'] = $user['id'];
+      //是否有未結帳訂單，如無則新增新訂單
+      $sql = <<<mutil
+          select * from orders where userId = "$user[id]" and done = false;
+      mutil;
+      $result = mysqli_query($link, $sql);
+      $order = mysqli_fetch_assoc($result);
+      if ($order == Null){
+        $sql = <<<mutil
+          insert into orders(total, userId, done)
+          values(0, "$user[id]", false)
+        mutil;
+        $result = mysqli_query($link, $sql);
+      }else{
+        $_SESSION['orderId'] = $order['id'];
+      }
       $Message = "親愛的用戶$search[userName]" . "你好";
-      if ($search['role'] == "管理者"){
+      if ($user['role'] == "管理者"){
         return $this->view("Backend/index");
       }else{
         return header("Location: http://localhost:8888/PID_Assignment/store?Message=".$Message);

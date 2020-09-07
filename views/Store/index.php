@@ -58,7 +58,7 @@ $result = mysqli_query($link, $sql);
           <h3><?php echo $row['productName'] ?></h3>
           <div>
             <div class="pull-left">
-              <img src="../<?php echo $row['picture'] ?>" style="background-size: contain; width:200px; height:250px" border="0" title="<?php echo $row['productName'] ?>">
+              <img src="../<?php echo $row['picture']?>" style="background-size: contain; width:200px; height:250px" border="0" title="<?php echo $row['productName'] ?>">
             </div>
             <div class="pull-left">
               <h4><?php echo $row['price'] ?>$NTD</h4>

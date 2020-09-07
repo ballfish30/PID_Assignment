@@ -1,5 +1,5 @@
 <?php require_once('views/store/header.php'); ?>
-<div style="padding-top:5.5em;" align="center">
+<div style="padding-top:8em;" align="center">
 <form id="form1" name="form1" method="post" action="http://localhost:8888/PID_Assignment/user/login">
   <table width="300" border="0" align="center" cellpadding="5" cellspacing="0" bgcolor="#F2F2F2">
     <tr>
