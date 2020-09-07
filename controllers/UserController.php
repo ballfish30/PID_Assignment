@@ -58,7 +58,7 @@ class UserController extends Controller
       if ($user['role'] == "管理者"){
         return $this->view("Backend/index");
       }else{
-        return header("Location: http://localhost:8888/PID_Assignment/store?Message=".$Message);
+        return $this->view("Store/index");
       }
   }
 

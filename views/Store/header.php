@@ -47,7 +47,7 @@
                         <li class="menu-item">
                             <a href="http://localhost:8888/PID_Assignment/store/">首頁</a></li>
                         <li class="menu-item">
-                            <a href="about.html">購物車</a></li>
+                            <a href="http://localhost:8888/PID_Assignment/store/carts">購物車</a></li>
                         <li class="menu-item">
                             <a href="blog.html">訂單</a></li>
                         <li class="menu-item">
