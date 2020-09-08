@@ -39,21 +39,6 @@ class UserController extends Controller
         return header("Location: http://localhost:8888/PID_Assignment/user/login?Message=".$Message);
       }
       $_SESSION['userId'] = $user['id'];
-      // //是否有未結帳訂單，如無則新增新訂單
-      // $sql = <<<mutil
-      //     select * from orders where userId = "$user[id]" and done = false;
-      // mutil;
-      // $result = mysqli_query($link, $sql);
-      // $order = mysqli_fetch_assoc($result);
-      // if ($order == Null){
-      //   $sql = <<<mutil
-      //     insert into orders(total, userId, done)
-      //     values(0, "$user[id]", false)
-      //   mutil;
-      //   $result = mysqli_query($link, $sql);
-      // }else{
-      //   $_SESSION['orderId'] = $order['id'];
-      // }
       $Message = "親愛的用戶$search[userName]" . "你好";
       if ($user['role'] == "管理者"){
         return $this->view("Backend/index");
@@ -103,7 +88,7 @@ class UserController extends Controller
   }
 
 
-
+  //填充程式
   function admin(){
     $link = include 'config.php';
     $passwd = password_hash("admin", PASSWORD_DEFAULT);

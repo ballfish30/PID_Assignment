@@ -1,0 +1,180 @@
+-- phpMyAdmin SQL Dump
+-- version 4.9.3
+-- https://www.phpmyadmin.net/
+--
+-- Host: localhost:8889
+-- Generation Time: Sep 08, 2020 at 09:12 AM
+-- Server version: 5.7.26-log
+-- PHP Version: 7.4.2
+create database boardGame default character set utf8;
+use boardGame;
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET time_zone = "+00:00";
+
+--
+-- Database: `boardGame`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `cart`
+--
+drop table if exists cart;
+CREATE TABLE `cart` (
+  `id` int(11) UNSIGNED NOT NULL,
+  `orderId` int(11) UNSIGNED DEFAULT NULL,
+  `productId` int(11) UNSIGNED DEFAULT NULL,
+  `quantity` int(8) DEFAULT NULL,
+  `total` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `category`
+--
+drop table if exists category;
+CREATE TABLE `category` (
+  `id` int(11) UNSIGNED NOT NULL,
+  `categoryName` varchar(30) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `orders`
+--
+drop table if exists orders;
+CREATE TABLE `orders` (
+  `id` int(11) UNSIGNED NOT NULL,
+  `total` int(8) DEFAULT NULL,
+  `userId` int(11) UNSIGNED DEFAULT NULL,
+  `done` tinyint(1) DEFAULT '0',
+  `date` date DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `product`
+--
+drop table if exists product;
+CREATE TABLE `product` (
+  `id` int(11) UNSIGNED NOT NULL,
+  `productName` varchar(50) DEFAULT NULL,
+  `price` int(8) DEFAULT NULL,
+  `description` varchar(300) DEFAULT NULL,
+  `picture` varchar(60) DEFAULT NULL,
+  `categoryId` int(11) UNSIGNED DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `user`
+--
+drop table if exists user;
+CREATE TABLE `user` (
+  `id` int(11) UNSIGNED NOT NULL,
+  `accountName` varchar(30) NOT NULL,
+  `passwd` varchar(120) NOT NULL,
+  `userName` varchar(30) DEFAULT NULL,
+  `role` enum('管理者','會員') DEFAULT NULL,
+  `isActive` tinyint(1) DEFAULT '1'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Indexes for dumped tables
+--
+
+--
+-- Indexes for table `cart`
+--
+ALTER TABLE `cart`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `fk_orderId` (`orderId`),
+  ADD KEY `fk_productId` (`productId`);
+
+--
+-- Indexes for table `category`
+--
+ALTER TABLE `category`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `orders`
+--
+ALTER TABLE `orders`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `fk_userId` (`userId`);
+
+--
+-- Indexes for table `product`
+--
+ALTER TABLE `product`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `fk_categoryId` (`categoryId`);
+
+--
+-- Indexes for table `user`
+--
+ALTER TABLE `user`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `cart`
+--
+ALTER TABLE `cart`
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `category`
+--
+ALTER TABLE `category`
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `orders`
+--
+ALTER TABLE `orders`
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `product`
+--
+ALTER TABLE `product`
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `user`
+--
+ALTER TABLE `user`
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
+-- Constraints for dumped tables
+--
+
+--
+-- Constraints for table `cart`
+--
+ALTER TABLE `cart`
+  ADD CONSTRAINT `fk_orderId` FOREIGN KEY (`orderId`) REFERENCES `orders` (`id`),
+  ADD CONSTRAINT `fk_productId` FOREIGN KEY (`productId`) REFERENCES `product` (`id`);
+
+--
+-- Constraints for table `orders`
+--
+ALTER TABLE `orders`
+  ADD CONSTRAINT `fk_userId` FOREIGN KEY (`userId`) REFERENCES `user` (`id`);
+
+--
+-- Constraints for table `product`
+--
+ALTER TABLE `product`
+  ADD CONSTRAINT `fk_categoryId` FOREIGN KEY (`categoryId`) REFERENCES `category` (`id`);

@@ -222,6 +222,9 @@ class BackendController extends Controller
   function order(){
     $this->view("Backend/order");
   }
+
+
+  
   function orders(){
     $this->view("Backend/orders");
   }

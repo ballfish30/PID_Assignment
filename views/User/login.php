@@ -12,8 +12,6 @@
     </tr>
     <tr>
       <td colspan="2" align="center" bgcolor="#CCCCCC"><input type="submit" name="btnOK" id="btnOK" value="登入" />
-      <!-- <a href="http://localhost:8888/RD5_Assignment/onlineBank/restpasswd" class="restpasswd">重設密碼</a> -->
-      <a href="http://localhost:8888/PID_Assignment/user/register/" class="register">註冊</a>
       </td>
     </tr>
   </table>
