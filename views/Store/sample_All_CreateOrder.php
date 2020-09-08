@@ -7,7 +7,6 @@ $sql = <<<mutil
   select * from orders where id = "$_SESSION[orderId]";
 mutil;
 $result = mysqli_query($link, $sql);
-echo $sql;
 $order = mysqli_fetch_assoc($result);
 $sql = <<<mutil
     select *, c.id cartId, p.price productPrice from cart as c inner join product as p on c.productId = p.id and c.orderId = $_SESSION[orderId];
@@ -68,9 +67,17 @@ $result = mysqli_query($link, $sql);
         $obj->SendExtend['InvType'] = ECPay_InvType::General;
         */
 
-
+        //因沒固定網域，無法接收結帳資訊，故先在此假設以結帳。
+        $sql = <<<mutil
+        update orders set
+          done = True
+        where
+          id = $_SESSION[orderId]
+        mutil;
+        mysqli_query($link, $sql);
         //產生訂單(auto submit至ECPay)
         $obj->CheckOut();
+        
       
 
     
