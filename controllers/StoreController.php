@@ -127,5 +127,16 @@ class StoreController extends Controller
         mutil;
         mysqli_query($link, $sql);
     }
+
+
+    function orders(){
+        return $this->view('Store/orders');
+    }
+
+
+
+    function order(){
+        return $this->view('Store/order');
+    }
 }
 ?>

@@ -68,9 +68,11 @@ $result = mysqli_query($link, $sql);
         */
 
         //因沒固定網域，無法接收結帳資訊，故先在此假設以結帳。
+        $date = date("Y/m/d");
         $sql = <<<mutil
         update orders set
-          done = True
+          done = True,
+          date = "$date"
         where
           id = $_SESSION[orderId]
         mutil;

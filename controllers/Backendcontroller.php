@@ -120,7 +120,6 @@ class BackendController extends Controller
       WHERE
       id = "$categoryId";
     mutil;
-    echo $sql;
     if (mysqli_query($link, $sql)) {
       echo "刪除成功";
       return header("Location: http://localhost:8888/PID_Assignment/backend/categorys");
@@ -171,7 +170,7 @@ class BackendController extends Controller
           picture = "$target_dir$newID.jpg"
         where
           id = "$newID";
-    mutil;\
+    mutil;
     mysqli_query($link, $sql);
     move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_dir . $newID . ".jpg");
     return header("Location: http://localhost:8888/PID_Assignment/backend/products");
@@ -203,5 +202,27 @@ class BackendController extends Controller
     mysqli_query($link, $sql);
     move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_dir . $_POST["productId"] . ".jpg");
     return header("Location: http://localhost:8888/PID_Assignment/backend/products");
+  }
+
+
+
+  function productDelete(){
+    // 資料庫連線參數
+    $link = include 'config.php';
+    $productId = $_GET['productId'];
+    $sql = <<<mutil
+    delete from product where id = $productId
+    mutil;
+    mysqli_query($link, $sql);
+    return $this->view('Backend/products');
+  }
+
+
+
+  function order(){
+    $this->view("Backend/order");
+  }
+  function orders(){
+    $this->view("Backend/orders");
   }
 }

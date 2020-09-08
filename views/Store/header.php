@@ -49,7 +49,7 @@
                         <li class="menu-item">
                             <a href="http://localhost:8888/PID_Assignment/store/carts">購物車</a></li>
                         <li class="menu-item">
-                            <a href="blog.html">訂單</a></li>
+                            <a href="http://localhost:8888/PID_Assignment/store/orders">訂單</a></li>
                         <li class="menu-item">
                             <a href="http://localhost:8888/PID_Assignment/user/register">註冊</a></li>
                         <?php

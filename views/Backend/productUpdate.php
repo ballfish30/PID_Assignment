@@ -48,7 +48,7 @@
     </tr>
     <tr>
       <td colspan="2" align="center" bgcolor="#CCCCCC"><input type="submit" name="btnOK" id="btnOK" value="確認" />
-      <a href="http://localhost:8888/PID_Assignment/backend/categorys" class="cancel">取消</a>
+      <a href="http://localhost:8888/PID_Assignment/backend/products" class="cancel">取消</a>
       </td>
     </tr>
   </table>

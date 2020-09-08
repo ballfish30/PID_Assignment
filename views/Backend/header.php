@@ -43,11 +43,13 @@
                     <ul id="menu-menu-1">
                         <li class="menu-item">
                             <a href="http://localhost:8888/PID_Assignment/backend/">後台首頁</a></li>
-                            <li class="menu-item">
+                        <li class="menu-item">
                             <a href="http://localhost:8888/PID_Assignment/store/">前台首頁</a></li>
                         <li class="menu-item">
                             <a href="http://localhost:8888/PID_Assignment/backend/members">會員列表</a></li>
-                            <li class="menu-item">
+                        <li class="menu-item">
+                            <a href="http://localhost:8888/PID_Assignment/backend/orders">訂單管理</a></li>
+                        <li class="menu-item">
                             <a href="http://localhost:8888/PID_Assignment/backend/categorys">類別管理</a></li>
                         <li class="menu-item">
                             <a href="http://localhost:8888/PID_Assignment/backend/products">商品管理</a></li>
